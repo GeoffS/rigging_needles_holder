@@ -12,7 +12,7 @@ intX = 90;
 intY = magnetRecessDia;
 intZ = 5;
 
-topX = 30;
+topX = 35;
 
 slopStartX = topX + 10;
 slopEndX = slopStartX + 25;
@@ -32,7 +32,7 @@ c1  = [           ed2, intY/2+ed2, 0];
 c2  = [slopStartX+ed2, intY/2+ed2, 0];
 c2a = [  slopEndX+ed2, intY/2+ed2, 0];
 c3  = [      intX+ed2, intY/2+ed2, 0];
-c4  = [      topX+ed2, intY/2+ed2, 0];
+c4  = [      topX-ed2, intY/2+ed2, 0];
 
 module itemModule()
 {
@@ -110,6 +110,17 @@ module itemModule()
         // Interior extension at closed end:
         tcu([4, -intY/2, topBotZ], [intX, intY, intZ]);
 	}
+
+    // Interior chamfers:
+    
+    doubleY() difference()
+    {
+        x0 = extCZ;
+        x = topX - x0;
+        yz = 5;
+        translate([x0, intY/2, intZ+topBotZ]) rotate([45,0,0]) tcu([0, -yz/2, -yz/2], [x, yz, yz]);
+        tcu([-10, -200, intZ+topBotZ], 400);
+    }
 }
 
 module corner(center, z=extZ)
@@ -119,7 +130,7 @@ module corner(center, z=extZ)
 
 module clip(d=0)
 {
-	tc([-200, -400-d, -10], 400);
+	// tc([-200, -400-d, -10], 400);
 }
 
 if(developmentRender)
