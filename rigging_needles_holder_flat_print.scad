@@ -102,7 +102,8 @@ module itemModule()
 
 		// Open end:
         recess1X = c4.x + extDia/2 + magnetRecessDia/2;
-		for(x=[recess1X, recess1X+20, recess1X+40])
+        recessDX = 24;
+		for(x=[recess1X, recess1X+recessDX, recess1X+2*recessDX])
 		{
 			tcy([x, 0, topBotZ - magnetRecessZ], d=magnetRecessDia, h=10);
 		}
@@ -112,7 +113,6 @@ module itemModule()
 	}
 
     // Interior chamfers:
-    
     doubleY() difference()
     {
         x0 = extCZ;
