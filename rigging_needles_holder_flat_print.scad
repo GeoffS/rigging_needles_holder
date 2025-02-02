@@ -14,14 +14,14 @@ intZ = 5;
 
 topX = 35;
 
-slopStartX = topX + 10;
-slopEndX = slopStartX + 25;
+slopeEndX = topX + 10;
+slopEndX = slopeEndX + 20;
 
 extraZlip = 4*layerHeight;
 
 topBotZ = magnetRecessZ + extraZlip;
 
-extDia = 10;
+extDia = 6;
 extCZ = 2; //topBotZ - extraZlip;
 ed2 = extDia/2;
 
@@ -29,7 +29,7 @@ extZ = intZ + 2*topBotZ;
 extZlow = 2*extCZ + extraZlip + 4*layerHeight;
 
 c1  = [           ed2, intY/2+ed2, 0];
-c2  = [slopStartX+ed2, intY/2+ed2, 0];
+c2  = [slopeEndX+ed2, intY/2+ed2, 0];
 c2a = [  slopEndX+ed2, intY/2+ed2, 0];
 c3  = [      intX+ed2, intY/2+ed2, 0];
 c4  = [      topX-ed2, intY/2+ed2, 0];
